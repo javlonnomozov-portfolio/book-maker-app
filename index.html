@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Number List Generator</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Number List Generator</h1>
+        
+        <label for="number1">Number 1:</label>
+        <input type="number" id="number1" required>
+        
+        <label for="number2">Number 2:</label>
+        <input type="number" id="number2" required>
+        
+        <label for="functionSelect">Select Function:</label>
+        <select id="functionSelect">
+            <option value="printer8Pages"> 8 Pages per sheet</option>
+            <option value="function2">Function 2</option>
+            <!-- Add more options as needed -->
+        </select>
+        
+        <button onclick="generateLists()">Generate Lists</button>
+        
+        <h2>List 1:</h2>
+        <ul id="list1"></ul>
+        
+        <h2>List 2:</h2>
+        <ul id="list2"></ul>
+    </div>
+    
+    <script src="printer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
