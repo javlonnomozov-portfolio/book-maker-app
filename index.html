@@ -1,49 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <title>Book Maker App</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1 class="title">
-            Book Maker App made by
-            <a href="https://github.com/javlonnomozov-portfolio/javlonnomozov-portfolio" target="_blank"
-                rel="noopener noreferrer">Javlon Nomozov</a>
-        </h1>
+      <h1 class="title">
+        Book Maker App made by
+        <a
+          href="https://github.com/javlonnomozov-portfolio/javlonnomozov-portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Javlon Nomozov</a
+        >
+      </h1>
 
-        <div class="form-group">
-            <label for="pages">Select Number of Pages:</label>
-            <select name="pages" id="pages">
-                <option selected value="1x4">4</option>
-                <option value="1x8">8</option>
-            </select>
-        </div>
+      <div class="form-group">
+        <label for="pages">Select Number of Pages:</label>
+        <select name="pages" id="pages">
+          <option selected value="1x4">4</option>
+          <option value="1x8">8</option>
+        </select>
+      </div>
 
-        <div class="form-group">
-            <label for="type">Select Printer Type:</label>
-            <select name="type" id="type">
-                <option selected value="epsonM1170">Epson M1170</option>
-            </select>
-        </div>
-        <button id="generate" class="btn" onclick="generate()">Generate</button>
+      <div class="form-group">
+        <label for="type">Select Printer Type:</label>
+        <select name="type" id="type">
+          <option selected value="epsonM1170">Epson M1170</option>
+        </select>
+      </div>
+      <button id="generate" class="btn" onclick="generate()">Generate</button>
 
-        <div class="result-group">
-            <p id="r1" class="result-input">1234</p>
-            <!-- <input type="text" id="r1" disabled value="123" class="result-input"> -->
-            <button class="copy-btn" onclick="copyToClipboard('r1')">Copy r1</button>
-        </div>
-        <div class="result-group">
-            <p id="r2" class="result-input">1234</p>
-            <!-- <input type="text" id="r2" disabled value="123" class="result-input"> -->
-            <button class="copy-btn" onclick="copyToClipboard('r2')">Copy r2</button>
-        </div>
+      <div class="result-group">
+        <p id="r1" class="result-input">1234</p>
+        <!-- <input type="text" id="r1" disabled value="123" class="result-input"> -->
+        <button class="copy-btn" onclick="copyToClipboard('r1')">
+          Copy r1
+        </button>
+      </div>
+      <div class="result-group">
+        <p id="r2" class="result-input">1234</p>
+        <!-- <input type="text" id="r2" disabled value="123" class="result-input"> -->
+        <button class="copy-btn" onclick="copyToClipboard('r2')">
+          Copy r2
+        </button>
+      </div>
     </div>
-    <script src="app.js"></script>
-</body>
+    <script>
+      const r1Elem = document.getElementById("r1");
+      const r2Elem = document.getElementById("r2");
+      const typeElem = document.getElementById("type");
+      const pagesElem = document.getElementById("pages");
 
+      function generate() {
+        if (pagesElem.value === "1x4") {
+          if (typeElem.value === "epsonM1170") {
+            let numberOfPages = window.prompt("Kitob betlari sonini kiriting");
+            const result = bookMaker4Pages(numberOfPages);
+
+            r1Elem.innerHTML = result[0].join(", ");
+
+            r2Elem.innerText = result[1].join(", ");
+          }
+        } else {
+          alert(
+            "Nomalum turdagi qiymat yoki dasturning tugatilmagan qismidan foydalanishga urunish"
+          );
+        }
+      }
+    </script>
+    <script src="scripts.js"></script>
+    <script src="functions.js"></script>
+  </body>
 </html>
