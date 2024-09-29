@@ -57,15 +57,23 @@
       const pagesElem = document.getElementById("pages");
 
       function generate() {
-        if (pagesElem.value === "1x4") {
-          if (typeElem.value === "epsonM1170") {
-            let numberOfPages = window.prompt("Kitob betlari sonini kiriting");
-            const result = bookMaker4Pages(numberOfPages);
+        if (pagesElem.value === "1x4" && typeElem.value === "epsonM1170") {
+          let numberOfPages = window.prompt("Kitob betlari sonini kiriting");
+          const result = bookMaker4Pages(numberOfPages);
 
-            r1Elem.innerHTML = result[0].join(", ");
+          r1Elem.innerHTML = result[0].join(", ");
 
-            r2Elem.innerText = result[1].join(", ");
-          }
+          r2Elem.innerText = result[1].join(", ");
+        } else if (
+          pagesElem.value === "1x8" &&
+          typeElem.value === "epsonM1170"
+        ) {
+          let numberOfPages = window.prompt("Kitob betlari sonini kiriting");
+          const result = bookMaker8Pages(numberOfPages);
+
+          r1Elem.innerHTML = result[0].join(", ");
+
+          r2Elem.innerText = result[1].join(", ");
         } else {
           alert(
             "Nomalum turdagi qiymat yoki dasturning tugatilmagan qismidan foydalanishga urunish"

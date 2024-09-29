@@ -46,30 +46,29 @@
     <script src="scripts.js"></script>
     <script src="functions.js"></script>
     <script>
-        console.log(bookMaker4Pages2Sides(164).join(', '));
-  
-        const r1Elem = document.getElementById("r1");
-        // const r2Elem = document.getElementById("r2");
-        const typeElem = document.getElementById("type");
-        const pagesElem = document.getElementById("pages");
-  
-        function generate() {
-          if (pagesElem.value === "1x4") {
-            if (typeElem.value === "epsonM1170") {
-              let numberOfPages = window.prompt("Kitob betlari sonini kiriting");
-              const result = bookMaker4Pages2Sides(numberOfPages);
-  
-              r1Elem.innerHTML = result.join(", ");
-  
-              // r2Elem.innerText = result[1].join(", ");
-            }
-          } else {
-            alert(
-              "Nomalum turdagi qiymat yoki dasturning tugatilmagan qismidan foydalanishga urunish"
-            );
+      console.log(bookMaker4Pages2Sides(164).join(", "));
+
+      const r1Elem = document.getElementById("r1");
+      // const r2Elem = document.getElementById("r2");
+      const typeElem = document.getElementById("type");
+      const pagesElem = document.getElementById("pages");
+
+      function generate() {
+        if (pagesElem.value === "1x4") {
+          if (typeElem.value === "epsonM1170") {
+            let numberOfPages = window.prompt("Kitob betlari sonini kiriting");
+            const result = bookMaker4Pages2Sides(numberOfPages);
+
+            r1Elem.innerHTML = result.join(", ");
+
+            // r2Elem.innerText = result[1].join(", ");
           }
+        } else {
+          alert(
+            "Nomalum turdagi qiymat yoki dasturning tugatilmagan qismidan foydalanishga urunish"
+          );
         }
-      </script>
-  
+      }
+    </script>
   </body>
 </html>
